@@ -111,10 +111,14 @@ function renderPrice() {
     }
     else {
       findActive.setAttribute('style','');
-      findActive.setAttribute('class','add');}
+    }
   i++;
   });
-
+  let sum = 10;
+  for(i=0;i<Object.values(ingredients).length;i++){
+    if (document.querySelectorAll('.btn')[i].classList.contains('active')){sum += Object.values(ingredients)[i].price;}
+  }
+  document.querySelector('.price span').innerHTML = sum;
 }
 
 renderEverything();
